@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Sharing Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="pageHeader">
+      <h1>Internship Sharing Board</h1>
+      <p>Kirim lowongan magang dan pantau status pengajuannya.</p>
+    </header>
+
+    <div class="boardLayout">
+      <section class="panel" aria-labelledby="formHeading">
+        <h2 id="formHeading">Kirim Lowongan Magang</h2>
+        <form id="jobForm" novalidate>
+          <div class="formGroup">
+            <label for="jobTitle">Judul Lowongan</label>
+            <input id="jobTitle" name="jobTitle" type="text" required maxlength="100" placeholder="Contoh: UI/UX Designer Intern">
+          </div>
+
+          <div class="formGroup">
+            <label for="companyName">Nama Perusahaan</label>
+            <input id="companyName" name="companyName" type="text" required maxlength="100" placeholder="Contoh: PT Kreatif Digital">
+          </div>
+
+          <div class="formGroup">
+            <label for="workType">Tipe Kerja</label>
+            <select id="workType" name="workType" required>
+              <option value="">Pilih tipe kerja</option>
+              <option value="WFH">WFH</option>
+              <option value="WFO">WFO</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          <div class="formGroup">
+            <label for="duration">Durasi Magang</label>
+            <input id="duration" name="duration" type="text" required maxlength="50" placeholder="Contoh: 3 bulan">
+          </div>
+
+          <div class="formGroup">
+            <label for="deadline">Tenggat Waktu</label>
+            <input id="deadline" name="deadline" type="date" required>
+          </div>
+
+          <div class="formGroup">
+            <label for="applicationLink">Link Pendaftaran</label>
+            <input id="applicationLink" name="applicationLink" type="url" required placeholder="https://contoh.com/daftar">
+          </div>
+
+          <button type="submit">Kirim Lowongan</button>
+          <p id="formFeedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="statusHeading">
+        <h2 id="statusHeading">Status Lowongan</h2>
+        <div class="tableWrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Lowongan</th>
+                <th scope="col">Tipe / Durasi</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Pendaftaran</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="jobTableBody"></tbody>
+          </table>
+          <p id="emptyState" class="emptyState">Belum ada lowongan yang dikirim.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
